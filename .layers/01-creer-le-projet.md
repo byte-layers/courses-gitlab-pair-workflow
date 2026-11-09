@@ -3,7 +3,15 @@ title: "01 - Créer le projet et inviter son binôme"
 description: "Un projet GitLab public, un membre invité, et un clone chacun"
 ---
 
-Voici le trajet complet que suivra votre projet. :
+Chaque personne travaille dans son propre **dépôt local**, une copie complète du projet. `dev-a` et `dev-b` sont donc deux dépôts distincts, et ils n'échangent des commits qu'en passant par GitLab :
+
+```mermaid
+flowchart LR
+  A["🟦 dev-a<br/>dépôt local de dev. A"] <-->|"push / pull"| S["cv-binome<br/>projet sur GitLab"]
+  S <-->|"push / pull"| B["🟧 dev-b<br/>dépôt local de dev. B"]
+```
+
+Voici le trajet complet que suivra votre projet :
 
 ```mermaid
 gitGraph
@@ -99,7 +107,7 @@ mkdir -p ~/layers-git/binome
 echo 'https://gitlab.com/votre-nom/cv-binome.git' > ~/layers-git/binome/url
 ```
 
-Clonez ensuite le projet dans le dossier `dev-a` :
+Clonez ensuite le projet. Cette commande crée `dev-a`, votre dépôt local :
 
 ```exec
 cd ~/layers-git/binome && git clone "$(cat url)" dev-a
@@ -142,14 +150,14 @@ mkdir -p ~/layers-git/binome
 echo 'https://gitlab.com/nom-de-dev-a/cv-binome.git' > ~/layers-git/binome/url
 ```
 
-Clonez le projet dans le dossier `dev-b`, puis regardez ce qu'il contient :
+Clonez le projet. Cette commande crée `dev-b`, votre dépôt local, distinct de celui de dev. A. Regardez ensuite ce qu'il contient :
 
 ```exec
 cd ~/layers-git/binome && git clone "$(cat url)" dev-b
 cd ~/layers-git/binome/dev-b && ls
 ```
 
-**Seul**, donnez à ce second dossier une autre identité, pour distinguer les deux personnes dans l'historique :
+**Seul**, donnez à ce second dépôt local une autre identité, pour distinguer les deux personnes dans l'historique :
 
 ```bash
 cd ~/layers-git/binome/dev-b && git config user.name "Dev B" && git config user.email "dev.b@example.com"

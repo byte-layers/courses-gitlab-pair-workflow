@@ -111,7 +111,7 @@ cd ~/layers-git/binome/dev-b && git switch develop
 cd ~/layers-git/binome/dev-b && ls cv
 ```
 
-Le fichier créé par dev. A est maintenant chez vous :
+Dev. A a créé ce fichier dans son dépôt local `dev-a`, puis l'a poussé sur le serveur. Vous venez de le récupérer dans votre dépôt local `dev-b` :
 
 ```text
 index.html
@@ -120,7 +120,7 @@ index.html
 Confirmez que vous avez bien récupéré le fichier.
 
 ```acknowledge
-Je vois cv/index.html dans mon dossier
+Je vois cv/index.html dans le dépôt dev-b
 ```
 
 ## 02.4 - 🟧 Dev. B : ajouter l'image et la pousser
