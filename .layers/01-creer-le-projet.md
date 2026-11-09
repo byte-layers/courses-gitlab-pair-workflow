@@ -86,7 +86,7 @@ Dev. B est invité avec le rôle Developer, ou je fais ce lab seul
 
 ## 01.3 - 🟦 Dev. A : cloner le projet dans dev-a
 
-> 🟦 **Dev. A (manager)**, sur gitlab.com puis dans le terminal.
+> 🟦 **Dev. A (manager)**, sur gitlab.com puis sur son environnement, dans le terminal.
 
 Sur la page du projet, cliquez sur le bouton **Code** et copiez l'adresse **Clone with HTTPS**. Ce lab utilise HTTPS, car il ne demande aucune configuration de clé SSH. Cette capture vient d'un serveur de test, et sur gitlab.com l'adresse commence bien par `https://` :
 
@@ -131,7 +131,7 @@ echo "Le projet est public, et il est cloné."
 
 ## 01.4 - 🟧 Dev. B : cloner le projet dans dev-b
 
-> 🟧 **Dev. B**, dans le terminal. Seul, passez directement à la commande `git clone`.
+> 🟧 **Dev. B**, sur son environnement, dans le terminal. Seul, passez directement à la commande `git clone`.
 >
 > ⏳ **Attendez** que dev. A vous ait invité (section 01.2) et transmis l'adresse (section 01.3).
 

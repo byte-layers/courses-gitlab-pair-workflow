@@ -7,7 +7,7 @@ Avant de travailler en parallèle, vous prenez vos marques : une seule branche, 
 
 ## 02.1 - 🟦 Dev. A : créer et publier la branche develop
 
-> 🟦 **Dev. A (manager)**, dans `dev-a`.
+> 🟦 **Dev. A (manager)**, sur son environnement, dans le dossier `dev-a`.
 
 Le projet a déjà `main`, qui contiendra uniquement ce qui part en production. Créez `develop`, la branche où s'assemble la prochaine version, et publiez-la pour que dev. B la voie :
 
@@ -38,7 +38,7 @@ echo "La branche develop est publiée."
 
 ## 02.2 - 🟦 Dev. A : créer la page du CV et la pousser
 
-> 🟦 **Dev. A (manager)**, dans `dev-a`.
+> 🟦 **Dev. A (manager)**, sur son environnement, dans le dossier `dev-a`.
 
 Créez le dossier `cv` et sa page `index.html`, celle d'un CV fictif :
 
@@ -99,7 +99,7 @@ echo "La page est sur develop. À dev. B de la récupérer."
 
 ## 02.3 - 🟧 Dev. B : récupérer develop
 
-> 🟧 **Dev. B**, dans `dev-b`.
+> 🟧 **Dev. B**, sur son environnement, dans le dossier `dev-b`.
 >
 > ⏳ **Attendez** que dev. A ait terminé la section 02.2.
 
@@ -125,7 +125,7 @@ Je vois cv/index.html dans mon dossier
 
 ## 02.4 - 🟧 Dev. B : ajouter l'image et la pousser
 
-> 🟧 **Dev. B**, dans `dev-b`.
+> 🟧 **Dev. B**, sur son environnement, dans le dossier `dev-b`.
 
 La page affiche une image qui n'existe pas encore. Cette commande télécharge une photo fictive, un simple carré portant les initiales JD, dans le dossier `cv/images` :
 
@@ -165,7 +165,7 @@ echo "L'image est sur develop. Dev. A peut la récupérer."
 
 ## 02.5 - 🟦 Dev. A : récupérer l'image de dev. B
 
-> 🟦 **Dev. A (manager)**, dans `dev-a`.
+> 🟦 **Dev. A (manager)**, sur son environnement, dans le dossier `dev-a`.
 >
 > ⏳ **Attendez** que dev. B ait terminé la section 02.4.
 
@@ -197,7 +197,7 @@ Le dépôt de dev. A est à jour, avec working tree clean
 
 ## 02.6 - 🟧 Dev. B : vérifier que son dépôt est à jour
 
-> 🟧 **Dev. B**, dans `dev-b`.
+> 🟧 **Dev. B**, sur son environnement, dans le dossier `dev-b`.
 
 Vous avez poussé le dernier commit, donc rien de nouveau ne vous attend. Vérifiez-le :
 

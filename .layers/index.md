@@ -31,9 +31,9 @@ Le lab alterne sans cesse entre deux personnes. Chaque section indique dans son 
 
 « Manager » désigne ici la responsabilité dans l'équipe. Ce n'est pas un rôle GitLab.
 
-**À deux**, chaque personne a son poste et son compte, et choisit un rôle. Vous ne faites que les sections qui portent votre repère, et vous pouvez passer celles de l'autre en cliquant sur leur rond de progression. L'ordre compte : une ligne ⏳ vous dit qui attendre au début d'une section, et une ligne ➡️ dit à qui c'est le tour à la fin.
+**À deux**, chaque personne a son environnement de travail, par exemple son poste, et son compte GitLab, et choisit un rôle. Vous ne faites que les sections qui portent votre repère, et vous pouvez passer celles de l'autre en cliquant sur leur rond de progression. L'ordre compte : une ligne ⏳ vous dit qui attendre au début d'une section, et une ligne ➡️ dit à qui c'est le tour à la fin.
 
-**Seul**, vous jouez les deux rôles sur le même poste et avec le même compte, en passant d'un dossier à l'autre. Votre compte a tous les droits : la section 04.3 vous dit comment obtenir quand même le refus de push.
+**Seul**, vous jouez les deux rôles dans le même environnement et avec le même compte, en passant d'un dossier à l'autre. Votre compte a tous les droits : la section 04.3 vous dit comment obtenir quand même le refus de push.
 
 **Vos fichiers** vivent dans `~/layers-git/binome`, et le projet doit rester **public** pour que les vérifications puissent le lire. La dernière étape supprime le dossier.
 

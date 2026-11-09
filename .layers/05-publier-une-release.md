@@ -9,7 +9,7 @@ Une seule personne s'en charge. Comme `main` et `develop` sont protégées, c'es
 
 ## 05.1 - 🟦 Dev. A : préparer la release
 
-> 🟦 **Dev. A (manager)**, dans `dev-a`.
+> 🟦 **Dev. A (manager)**, sur son environnement, dans le dossier `dev-a`.
 
 Récupérez d'abord le travail de dev. B, puis créez la branche de release à partir de `develop` :
 
@@ -34,7 +34,7 @@ Le commit de préparation est fait sur release/1.0.0
 
 ## 05.2 - 🟦 Dev. A : fusionner dans main et poser le tag v1.0.0
 
-> 🟦 **Dev. A (manager)**, dans `dev-a`.
+> 🟦 **Dev. A (manager)**, sur son environnement, dans le dossier `dev-a`.
 
 Fusionnez la release dans `main`. Sans option, Git ferait une fusion **fast-forward** : il avancerait simplement la branche, sans trace de la fusion. L'option `--no-ff` force la création d'un commit de fusion, pour que l'historique montre l'arrivée de la version. Un **tag** marque ensuite ce commit avec le numéro de version. L'option `-a` en fait un tag annoté, qui garde son auteur, sa date et un message :
 
@@ -55,7 +55,7 @@ main contient la release, et le tag v1.0.0 est posé
 
 ## 05.3 - 🟦 Dev. A : reporter la release dans develop et tout publier
 
-> 🟦 **Dev. A (manager)**, dans `dev-a`.
+> 🟦 **Dev. A (manager)**, sur son environnement, dans le dossier `dev-a`.
 
 Reportez la release dans `develop`, qui ne connaît pas encore le fichier `VERSION`. Sans argument, `git push` n'envoie que la branche courante, et jamais les tags : cette commande nomme donc tout ce qu'il faut publier. Supprimez enfin les branches locales devenues inutiles :
 
@@ -92,7 +92,7 @@ echo "La version 1.0.0 est publiée sur main, et reportée dans develop."
 
 ## 05.4 - 🟧 Dev. B : récupérer la version et ranger sa branche
 
-> 🟧 **Dev. B**, dans `dev-b`.
+> 🟧 **Dev. B**, sur son environnement, dans le dossier `dev-b`.
 >
 > ⏳ **Attendez** que dev. A ait terminé la section 05.3.
 

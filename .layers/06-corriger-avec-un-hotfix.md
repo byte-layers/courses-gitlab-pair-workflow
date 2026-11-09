@@ -7,7 +7,7 @@ En relisant le site, dev. B s'aperçoit que le titre de la page en production, �
 
 ## 06.1 - 🟧 Dev. B : développer le correctif depuis main
 
-> 🟧 **Dev. B**, dans `dev-b` puis sur gitlab.com.
+> 🟧 **Dev. B**, sur son environnement, dans le dossier `dev-b` puis sur gitlab.com.
 
 Créez la branche du correctif à partir de `main` :
 
@@ -51,7 +51,7 @@ echo "La merge request du correctif est ouverte."
 
 ## 06.2 - 🟦 Dev. A : fusionner le correctif et poser le tag v1.0.1
 
-> 🟦 **Dev. A (manager)**, sur gitlab.com puis dans `dev-a`.
+> 🟦 **Dev. A (manager)**, sur gitlab.com puis sur son environnement, dans le dossier `dev-a`.
 >
 > ⏳ **Attendez** que dev. B ait ouvert sa merge request (section 06.1).
 
@@ -98,7 +98,7 @@ echo "Le correctif est sur main et sur develop, et la version 1.0.1 est taguée.
 
 ## 06.3 - 🟧 Dev. B : récupérer le correctif et ranger sa branche
 
-> 🟧 **Dev. B**, dans `dev-b`.
+> 🟧 **Dev. B**, sur son environnement, dans le dossier `dev-b`.
 >
 > ⏳ **Attendez** que dev. A ait terminé la section 06.2.
 
