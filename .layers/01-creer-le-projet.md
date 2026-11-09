@@ -92,7 +92,7 @@ Sur la page du projet, cliquez sur le bouton **Code** et copiez l'adresse **Clon
 
 ![Menu Code d'un projet GitLab, avec les adresses de clonage en SSH et en HTTP](assets/gitlab-clone.png)
 
-Enregistrez cette adresse dans un fichier, en remplaçant l'exemple par la vôtre. Les vérifications du lab le liront :
+Le lab ne connaît pas l'adresse de votre projet. Vous allez donc la noter dans un petit fichier nommé `url`, que liront la commande de clonage et les vérifications. Copiez ces deux lignes dans votre terminal, en remplaçant l'adresse d'exemple par celle que vous venez de copier :
 
 ```bash
 mkdir -p ~/layers-git/binome
@@ -135,7 +135,7 @@ echo "Le projet est public, et il est cloné."
 >
 > ⏳ **Attendez** que dev. A vous ait invité (section 01.2) et transmis l'adresse (section 01.3).
 
-Acceptez l'invitation si GitLab vous l'envoie par e-mail. Enregistrez ensuite l'adresse que dev. A vous a transmise :
+Acceptez l'invitation si GitLab vous l'envoie par e-mail. Comme dev. A, vous allez noter l'adresse du projet dans un petit fichier nommé `url`, que liront la commande de clonage et les vérifications. Copiez ces deux lignes dans votre terminal, en remplaçant l'adresse d'exemple par celle que dev. A vous a transmise :
 
 ```bash
 mkdir -p ~/layers-git/binome
