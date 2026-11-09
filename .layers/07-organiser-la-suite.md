@@ -45,7 +45,7 @@ echo "L'issue est rattachée au jalon V2, avec le label feature."
 
 ## 07.2 - 🟧 Dev. B : créer la branche de l'issue
 
-> 🟧 **Dev. B**, sur son environnement, dans le dossier `dev-b`.
+> 🟧 **Dev. B**, sur son environnement, dans son dépôt local `dev-b`.
 >
 > ⏳ **Attendez** que dev. A ait terminé la section 07.1.
 

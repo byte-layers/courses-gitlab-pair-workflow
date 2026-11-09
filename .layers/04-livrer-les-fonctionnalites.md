@@ -7,7 +7,7 @@ Chacun développe maintenant sa **fonctionnalité** (une *feature*) sur sa propr
 
 ## 04.1 - 🟦 Dev. A : développer la feature css (le style)
 
-> 🟦 **Dev. A (manager)**, sur son environnement, dans le dossier `dev-a`.
+> 🟦 **Dev. A (manager)**, sur son environnement, dans son dépôt local `dev-a`.
 
 Créez votre branche à partir de `develop` :
 
@@ -43,7 +43,7 @@ Mon commit est fait sur feature/css
 
 ## 04.2 - 🟧 Dev. B : développer la feature content (le contenu)
 
-> 🟧 **Dev. B**, sur son environnement, dans le dossier `dev-b`.
+> 🟧 **Dev. B**, sur son environnement, dans son dépôt local `dev-b`.
 >
 > ⏳ **Attendez** que dev. A ait protégé `develop` (section 03.1).
 
@@ -74,7 +74,7 @@ Mon commit est fait sur feature/content
 
 ## 04.3 - 🟧 Dev. B : tenter de pousser sur develop, et se faire refuser
 
-> 🟧 **Dev. B**, sur son environnement, dans le dossier `dev-b`.
+> 🟧 **Dev. B**, sur son environnement, dans son dépôt local `dev-b`.
 
 Votre travail est prêt. Le réflexe de l'échauffement serait de l'envoyer directement sur `develop` : fusionnez votre branche dans `develop`, puis poussez. Le push va être refusé, c'est le but de cette section.
 
@@ -124,7 +124,7 @@ echo "develop n'a pas bougé sur le serveur."
 
 ## 04.4 - 🟧 Dev. B : publier sa branche et ouvrir une merge request
 
-> 🟧 **Dev. B**, sur son environnement, dans le dossier `dev-b` puis sur gitlab.com.
+> 🟧 **Dev. B**, sur son environnement, dans son dépôt local `dev-b` puis sur gitlab.com.
 
 Une branche de travail, elle, n'est pas protégée. Publiez-la :
 
@@ -159,7 +159,7 @@ echo "La merge request est ouverte, de feature/content vers develop."
 
 ## 04.5 - 🟦 Dev. A : fusionner sa feature directement dans develop
 
-> 🟦 **Dev. A (manager)**, sur son environnement, dans le dossier `dev-a`.
+> 🟦 **Dev. A (manager)**, sur son environnement, dans son dépôt local `dev-a`.
 >
 > ⏳ **Attendez** que dev. B ait ouvert sa merge request (section 04.4).
 
@@ -196,7 +196,7 @@ echo "La feature css est sur develop."
 
 ## 04.6 - 🟧 Dev. B : constater le conflit et le résoudre
 
-> 🟧 **Dev. B**, sur gitlab.com puis sur son environnement, dans le dossier `dev-b`.
+> 🟧 **Dev. B**, sur gitlab.com puis sur son environnement, dans son dépôt local `dev-b`.
 >
 > ⏳ **Attendez** que dev. A ait terminé la section 04.5.
 
