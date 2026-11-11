@@ -25,9 +25,9 @@ Ouvrez enfin **Work items** dans le menu du projet, cliquez sur **New item**, et
 Elle porte le numéro `#1`, visible à côté de son titre.
 
 ```verify
-C=$(cat ~/layers-git/binome/url 2>/dev/null)
+C=$(cat ~/byte-layers/git/binome/url 2>/dev/null)
 if [ -z "$C" ]; then
-  echo "L'adresse du projet n'est pas enregistrée dans ~/layers-git/binome/url."
+  echo "L'adresse du projet n'est pas enregistrée dans ~/byte-layers/git/binome/url."
   exit 1
 fi
 H=$(echo "$C" | sed -E 's#^(https?://)([^/@]*@)?([^/]+)/.*#\1\3#')
@@ -52,16 +52,16 @@ echo "L'issue est rattachée au jalon V2, avec le label feature."
 Chaque issue peut donner une branche. Mettre le numéro de l'issue dans le nom de la branche permet de retrouver le lien entre les deux. Partez de `develop`, et publiez la branche :
 
 ```exec
-cd ~/layers-git/binome/dev-b && git switch -c feature/1-competences develop
-cd ~/layers-git/binome/dev-b && git push -u origin feature/1-competences
+cd ~/byte-layers/git/binome/dev-b && git switch -c feature/1-competences develop
+cd ~/byte-layers/git/binome/dev-b && git push -u origin feature/1-competences
 ```
 
 La suite vous est maintenant familière : développer, ouvrir une merge request vers `develop`, et la faire fusionner par le manager. Vous n'avez pas à le faire ici.
 
 ```verify
-C=$(cat ~/layers-git/binome/url 2>/dev/null)
+C=$(cat ~/byte-layers/git/binome/url 2>/dev/null)
 if [ -z "$C" ]; then
-  echo "L'adresse du projet n'est pas enregistrée dans ~/layers-git/binome/url."
+  echo "L'adresse du projet n'est pas enregistrée dans ~/byte-layers/git/binome/url."
   exit 1
 fi
 H=$(echo "$C" | sed -E 's#^(https?://)([^/@]*@)?([^/]+)/.*#\1\3#')
@@ -81,12 +81,12 @@ echo "La branche de l'issue est publiée."
 > 🟪 **A et B**, chacun de son côté. Seul, une seule fois suffit. Une fois que dev. B a terminé la section précédente, dev. A peut aussi supprimer le projet sur GitLab, depuis **Settings**, **General**, **Advanced**, **Delete project**.
 
 ```exec
-cd ~ && rm -rf ~/layers-git/binome
+cd ~ && rm -rf ~/byte-layers/git/binome
 ```
 
 ```verify
-if [ -e ~/layers-git/binome ]; then
-  echo "Le dossier ~/layers-git/binome existe encore."
+if [ -e ~/byte-layers/git/binome ]; then
+  echo "Le dossier ~/byte-layers/git/binome existe encore."
   exit 1
 fi
 echo "Le dossier est supprimé."

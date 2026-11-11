@@ -103,33 +103,33 @@ Sur la page du projet, cliquez sur le bouton **Code** et copiez l'adresse **Clon
 Le lab ne connaît pas l'adresse de votre projet. Vous allez donc la noter dans un petit fichier nommé `url`, que liront la commande de clonage et les vérifications. Copiez ces deux lignes dans votre terminal, en remplaçant l'adresse d'exemple par celle que vous venez de copier :
 
 ```bash
-mkdir -p ~/layers-git/binome
-echo 'https://gitlab.com/votre-nom/cv-binome.git' > ~/layers-git/binome/url
+mkdir -p ~/byte-layers/git/binome
+echo 'https://gitlab.com/votre-nom/cv-binome.git' > ~/byte-layers/git/binome/url
 ```
 
 Clonez ensuite le projet. Cette commande crée `dev-a`, votre dépôt local :
 
 ```exec
-cd ~/layers-git/binome && git clone "$(cat url)" dev-a
+cd ~/byte-layers/git/binome && git clone "$(cat url)" dev-a
 ```
 
 Transmettez ensuite l'adresse de `url` à dev. B, qui en a besoin à la section suivante.
 
 ```verify
-C=$(cat ~/layers-git/binome/url 2>/dev/null)
+C=$(cat ~/byte-layers/git/binome/url 2>/dev/null)
 if [ -z "$C" ]; then
-  echo "L'adresse du projet n'est pas enregistrée dans ~/layers-git/binome/url."
+  echo "L'adresse du projet n'est pas enregistrée dans ~/byte-layers/git/binome/url."
   exit 1
 fi
 H=$(echo "$C" | sed -E 's#^(https?://)([^/@]*@)?([^/]+)/.*#\1\3#')
 P=$(echo "$C" | sed -E 's#^https?://[^/]+/##; s#\.git$##; s#/#%2F#g')
 A="$H/api/v4/projects/$P"
 if ! curl -fsS "$A" 2>/dev/null | grep -q '"visibility":"public"'; then
-  echo "Le projet est introuvable ou n'est pas public. Vérifiez l'adresse dans ~/layers-git/binome/url et sa visibilité."
+  echo "Le projet est introuvable ou n'est pas public. Vérifiez l'adresse dans ~/byte-layers/git/binome/url et sa visibilité."
   exit 1
 fi
-if [ ! -d ~/layers-git/binome/dev-a/.git ] && [ ! -d ~/layers-git/binome/dev-b/.git ]; then
-  echo "Le dossier du clone n'existe pas encore dans ~/layers-git/binome."
+if [ ! -d ~/byte-layers/git/binome/dev-a/.git ] && [ ! -d ~/byte-layers/git/binome/dev-b/.git ]; then
+  echo "Le dossier du clone n'existe pas encore dans ~/byte-layers/git/binome."
   exit 1
 fi
 echo "Le projet est public, et il est cloné."
@@ -146,38 +146,38 @@ echo "Le projet est public, et il est cloné."
 Acceptez l'invitation si GitLab vous l'envoie par e-mail. Comme dev. A, vous allez noter l'adresse du projet dans un petit fichier nommé `url`, que liront la commande de clonage et les vérifications. Copiez ces deux lignes dans votre terminal, en remplaçant l'adresse d'exemple par celle que dev. A vous a transmise :
 
 ```bash
-mkdir -p ~/layers-git/binome
-echo 'https://gitlab.com/nom-de-dev-a/cv-binome.git' > ~/layers-git/binome/url
+mkdir -p ~/byte-layers/git/binome
+echo 'https://gitlab.com/nom-de-dev-a/cv-binome.git' > ~/byte-layers/git/binome/url
 ```
 
 Clonez le projet. Cette commande crée `dev-b`, votre dépôt local, distinct de celui de dev. A. Regardez ensuite ce qu'il contient :
 
 ```exec
-cd ~/layers-git/binome && git clone "$(cat url)" dev-b
-cd ~/layers-git/binome/dev-b && ls
+cd ~/byte-layers/git/binome && git clone "$(cat url)" dev-b
+cd ~/byte-layers/git/binome/dev-b && ls
 ```
 
 **Seul**, donnez à ce second dépôt local une autre identité, pour distinguer les deux personnes dans l'historique :
 
 ```bash
-cd ~/layers-git/binome/dev-b && git config user.name "Dev B" && git config user.email "dev.b@example.com"
+cd ~/byte-layers/git/binome/dev-b && git config user.name "Dev B" && git config user.email "dev.b@example.com"
 ```
 
 ```verify
-C=$(cat ~/layers-git/binome/url 2>/dev/null)
+C=$(cat ~/byte-layers/git/binome/url 2>/dev/null)
 if [ -z "$C" ]; then
-  echo "L'adresse du projet n'est pas enregistrée dans ~/layers-git/binome/url."
+  echo "L'adresse du projet n'est pas enregistrée dans ~/byte-layers/git/binome/url."
   exit 1
 fi
 H=$(echo "$C" | sed -E 's#^(https?://)([^/@]*@)?([^/]+)/.*#\1\3#')
 P=$(echo "$C" | sed -E 's#^https?://[^/]+/##; s#\.git$##; s#/#%2F#g')
 A="$H/api/v4/projects/$P"
-if [ ! -d ~/layers-git/binome/dev-b/.git ] && [ ! -d ~/layers-git/binome/dev-a/.git ]; then
-  echo "Le dossier du clone n'existe pas encore dans ~/layers-git/binome."
+if [ ! -d ~/byte-layers/git/binome/dev-b/.git ] && [ ! -d ~/byte-layers/git/binome/dev-a/.git ]; then
+  echo "Le dossier du clone n'existe pas encore dans ~/byte-layers/git/binome."
   exit 1
 fi
 if ! curl -fsS "$A" 2>/dev/null | grep -q '"visibility":"public"'; then
-  echo "Le projet est introuvable. Vérifiez l'adresse dans ~/layers-git/binome/url."
+  echo "Le projet est introuvable. Vérifiez l'adresse dans ~/byte-layers/git/binome/url."
   exit 1
 fi
 echo "Vous avez votre clone du projet."

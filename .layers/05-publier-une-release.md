@@ -14,16 +14,16 @@ Une seule personne s'en charge. Comme `main` et `develop` sont protégées, c'es
 Récupérez d'abord le travail de dev. B, puis créez la branche de release à partir de `develop` :
 
 ```exec
-cd ~/layers-git/binome/dev-a && git switch develop
-cd ~/layers-git/binome/dev-a && git pull
-cd ~/layers-git/binome/dev-a && git switch -c release/1.0.0
+cd ~/byte-layers/git/binome/dev-a && git switch develop
+cd ~/byte-layers/git/binome/dev-a && git pull
+cd ~/byte-layers/git/binome/dev-a && git switch -c release/1.0.0
 ```
 
 Sur cette branche, on ne fait que finaliser la version : ici, enregistrer son numéro dans un fichier `VERSION`.
 
 ```exec
-cd ~/layers-git/binome/dev-a && echo '1.0.0' > VERSION
-cd ~/layers-git/binome/dev-a && git add VERSION && git commit -m "Prépare la version 1.0.0"
+cd ~/byte-layers/git/binome/dev-a && echo '1.0.0' > VERSION
+cd ~/byte-layers/git/binome/dev-a && git add VERSION && git commit -m "Prépare la version 1.0.0"
 ```
 
 Confirmez lorsque ce commit est fait.
@@ -39,10 +39,10 @@ Le commit de préparation est fait sur release/1.0.0
 Fusionnez la release dans `main`. Sans option, Git ferait une fusion **fast-forward** : il avancerait simplement la branche, sans trace de la fusion. L'option `--no-ff` force la création d'un commit de fusion, pour que l'historique montre l'arrivée de la version. Un **tag** marque ensuite ce commit avec le numéro de version. L'option `-a` en fait un tag annoté, qui garde son auteur, sa date et un message :
 
 ```exec
-cd ~/layers-git/binome/dev-a && git switch main
-cd ~/layers-git/binome/dev-a && git pull
-cd ~/layers-git/binome/dev-a && git merge --no-ff release/1.0.0 -m "Publie la version 1.0.0"
-cd ~/layers-git/binome/dev-a && git tag -a v1.0.0 -m "Version 1.0.0"
+cd ~/byte-layers/git/binome/dev-a && git switch main
+cd ~/byte-layers/git/binome/dev-a && git pull
+cd ~/byte-layers/git/binome/dev-a && git merge --no-ff release/1.0.0 -m "Publie la version 1.0.0"
+cd ~/byte-layers/git/binome/dev-a && git tag -a v1.0.0 -m "Version 1.0.0"
 ```
 
 > 💡 **Remarque.** Le manager fusionne ici dans `main` depuis son poste, pour garder le lab court. Dans une vraie équipe, il vaut mieux passer aussi par une merge request vers `main`, comme le fera le hotfix.
@@ -60,16 +60,16 @@ main contient la release, et le tag v1.0.0 est posé
 Reportez la release dans `develop`, qui ne connaît pas encore le fichier `VERSION`. Sans argument, `git push` n'envoie que la branche courante, et jamais les tags : cette commande nomme donc tout ce qu'il faut publier. Supprimez enfin les branches locales devenues inutiles :
 
 ```exec
-cd ~/layers-git/binome/dev-a && git switch develop
-cd ~/layers-git/binome/dev-a && git merge --no-ff release/1.0.0 -m "Reporte la version 1.0.0 dans develop"
-cd ~/layers-git/binome/dev-a && git push origin main develop v1.0.0
-cd ~/layers-git/binome/dev-a && git branch -d release/1.0.0 feature/css
+cd ~/byte-layers/git/binome/dev-a && git switch develop
+cd ~/byte-layers/git/binome/dev-a && git merge --no-ff release/1.0.0 -m "Reporte la version 1.0.0 dans develop"
+cd ~/byte-layers/git/binome/dev-a && git push origin main develop v1.0.0
+cd ~/byte-layers/git/binome/dev-a && git branch -d release/1.0.0 feature/css
 ```
 
 ```verify
-C=$(cat ~/layers-git/binome/url 2>/dev/null)
+C=$(cat ~/byte-layers/git/binome/url 2>/dev/null)
 if [ -z "$C" ]; then
-  echo "L'adresse du projet n'est pas enregistrée dans ~/layers-git/binome/url."
+  echo "L'adresse du projet n'est pas enregistrée dans ~/byte-layers/git/binome/url."
   exit 1
 fi
 H=$(echo "$C" | sed -E 's#^(https?://)([^/@]*@)?([^/]+)/.*#\1\3#')
@@ -99,12 +99,12 @@ echo "La version 1.0.0 est publiée sur main, et reportée dans develop."
 Récupérez les deux branches permanentes et le tag, puis supprimez votre copie locale de la branche de travail, désormais fusionnée :
 
 ```exec
-cd ~/layers-git/binome/dev-b && git switch main
-cd ~/layers-git/binome/dev-b && git pull
-cd ~/layers-git/binome/dev-b && git switch develop
-cd ~/layers-git/binome/dev-b && git pull
-cd ~/layers-git/binome/dev-b && git branch -d feature/content
-cd ~/layers-git/binome/dev-b && git tag
+cd ~/byte-layers/git/binome/dev-b && git switch main
+cd ~/byte-layers/git/binome/dev-b && git pull
+cd ~/byte-layers/git/binome/dev-b && git switch develop
+cd ~/byte-layers/git/binome/dev-b && git pull
+cd ~/byte-layers/git/binome/dev-b && git branch -d feature/content
+cd ~/byte-layers/git/binome/dev-b && git tag
 ```
 
 La dernière commande affiche le tag de la version :

@@ -31,9 +31,9 @@ Remplissez le formulaire comme ceci, puis validez avec **Protect** :
 Un Owner a au moins les droits d'un Maintainer. Vous restez donc autorisé.
 
 ```verify
-C=$(cat ~/layers-git/binome/url 2>/dev/null)
+C=$(cat ~/byte-layers/git/binome/url 2>/dev/null)
 if [ -z "$C" ]; then
-  echo "L'adresse du projet n'est pas enregistrée dans ~/layers-git/binome/url."
+  echo "L'adresse du projet n'est pas enregistrée dans ~/byte-layers/git/binome/url."
   exit 1
 fi
 H=$(echo "$C" | sed -E 's#^(https?://)([^/@]*@)?([^/]+)/.*#\1\3#')
