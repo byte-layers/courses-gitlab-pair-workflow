@@ -37,6 +37,6 @@ Le lab alterne sans cesse entre deux personnes. Chaque section indique dans son 
 
 **Seul**, vous jouez les deux rôles dans le même environnement et avec le même compte, en passant d'un dépôt local à l'autre. Votre compte a tous les droits : la section 04.3 vous dit comment obtenir quand même le refus de push.
 
-**Vos fichiers** vivent dans `~/layers-git/binome`, et le projet doit rester **public** pour que les vérifications puissent le lire. La dernière étape supprime le dossier.
+**Vos fichiers** vivent dans `~/byte-layers/git/binome`, et le projet doit rester **public** pour que les vérifications puissent le lire. La dernière étape supprime le dossier.
 
 > 💡 **Remarque.** Ce workflow est une version simplifiée de **Gitflow**, un modèle publié en 2010. Il reste adapté à un logiciel livré par versions successives (v1.x, v2.x). L'auteur de Gitflow précise depuis 2020 que, pour une application livrée en continu, un workflow plus simple convient mieux. Le bit [Workflows Git](https://byte-layers.com/fr/bits/git-workflows) compare ces modèles.

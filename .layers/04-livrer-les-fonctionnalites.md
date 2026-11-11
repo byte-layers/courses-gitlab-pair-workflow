@@ -12,10 +12,10 @@ Chacun développe maintenant sa **fonctionnalité** (une *feature*) sur sa propr
 Créez votre branche à partir de `develop` :
 
 ```exec
-cd ~/layers-git/binome/dev-a && git switch -c feature/css
+cd ~/byte-layers/git/binome/dev-a && git switch -c feature/css
 ```
 
-Ouvrez `~/layers-git/binome/dev-a/cv/index.html` dans votre éditeur. Ajoutez cette ligne juste après la ligne `<meta charset="UTF-8">`, pour charger la feuille de style de Bootstrap :
+Ouvrez `~/byte-layers/git/binome/dev-a/cv/index.html` dans votre éditeur. Ajoutez cette ligne juste après la ligne `<meta charset="UTF-8">`, pour charger la feuille de style de Bootstrap :
 
 ```html
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -30,7 +30,7 @@ Dans le même fichier, remplacez la ligne du titre `<h1>` par celle-ci, qui agra
 Enregistrez le fichier, puis faites un commit. L'option `-a` y inclut tous les fichiers déjà suivis par Git, sans `git add` :
 
 ```exec
-cd ~/layers-git/binome/dev-a && git commit -am "Ajoute le style Bootstrap"
+cd ~/byte-layers/git/binome/dev-a && git commit -am "Ajoute le style Bootstrap"
 ```
 
 Confirmez lorsque votre commit est fait.
@@ -50,10 +50,10 @@ Mon commit est fait sur feature/css
 Pendant ce temps, créez votre propre branche à partir de `develop` :
 
 ```exec
-cd ~/layers-git/binome/dev-b && git switch -c feature/content
+cd ~/byte-layers/git/binome/dev-b && git switch -c feature/content
 ```
 
-Ouvrez `~/layers-git/binome/dev-b/cv/index.html` dans votre éditeur. Remplacez la ligne `<title>` par la première ligne ci-dessous, et la ligne `<h1>` par la seconde :
+Ouvrez `~/byte-layers/git/binome/dev-b/cv/index.html` dans votre éditeur. Remplacez la ligne `<title>` par la première ligne ci-dessous, et la ligne `<h1>` par la seconde :
 
 ```html
   <title>Mon CV</title>
@@ -63,7 +63,7 @@ Ouvrez `~/layers-git/binome/dev-b/cv/index.html` dans votre éditeur. Remplacez 
 Enregistrez le fichier, puis faites un commit :
 
 ```exec
-cd ~/layers-git/binome/dev-b && git commit -am "Personnalise le contenu du CV"
+cd ~/byte-layers/git/binome/dev-b && git commit -am "Personnalise le contenu du CV"
 ```
 
 Confirmez lorsque votre commit est fait.
@@ -81,9 +81,9 @@ Votre travail est prêt. Le réflexe de l'échauffement serait de l'envoyer dire
 > 🧍 **Seul.** Votre compte est Owner, et le push passerait. Avant de lancer la commande, réglez **Allowed to push and merge** sur **No one** pour `develop`, dans **Settings**, **Repository**, **Protected branches**.
 
 ```exec
-cd ~/layers-git/binome/dev-b && git switch develop
-cd ~/layers-git/binome/dev-b && git merge feature/content
-cd ~/layers-git/binome/dev-b && git push
+cd ~/byte-layers/git/binome/dev-b && git switch develop
+cd ~/byte-layers/git/binome/dev-b && git merge feature/content
+cd ~/byte-layers/git/binome/dev-b && git push
 ```
 
 Votre fusion locale a réussi, mais le serveur refuse le push :
@@ -102,14 +102,14 @@ Le message dit que vous n'avez pas le droit de pousser sur une branche protégé
 Votre branche `develop` locale contient maintenant un commit que le serveur n'aura jamais. Remettez-la au même point qu'`origin/develop`, la copie locale de la branche du serveur. `git reset --hard` efface ce qui n'est pas enregistré dans un commit, mais votre travail ne risque rien, car il reste sur `feature/content` :
 
 ```exec
-cd ~/layers-git/binome/dev-b && git reset --hard origin/develop
-cd ~/layers-git/binome/dev-b && git switch feature/content
+cd ~/byte-layers/git/binome/dev-b && git reset --hard origin/develop
+cd ~/byte-layers/git/binome/dev-b && git switch feature/content
 ```
 
 ```verify
-C=$(cat ~/layers-git/binome/url 2>/dev/null)
+C=$(cat ~/byte-layers/git/binome/url 2>/dev/null)
 if [ -z "$C" ]; then
-  echo "L'adresse du projet n'est pas enregistrée dans ~/layers-git/binome/url."
+  echo "L'adresse du projet n'est pas enregistrée dans ~/byte-layers/git/binome/url."
   exit 1
 fi
 H=$(echo "$C" | sed -E 's#^(https?://)([^/@]*@)?([^/]+)/.*#\1\3#')
@@ -129,7 +129,7 @@ echo "develop n'a pas bougé sur le serveur."
 Une branche de travail, elle, n'est pas protégée. Publiez-la :
 
 ```exec
-cd ~/layers-git/binome/dev-b && git push -u origin feature/content
+cd ~/byte-layers/git/binome/dev-b && git push -u origin feature/content
 ```
 
 Une **merge request** est une demande de fusion : vous proposez votre branche, et une personne autorisée la relit puis la fusionne. Sur GitLab, ouvrez **Merge requests** dans le menu du projet, et cliquez sur **New merge request**. Choisissez ces deux branches :
@@ -140,9 +140,9 @@ Une **merge request** est une demande de fusion : vous proposez votre branche, e
 Cliquez sur **Compare branches and continue**, vérifiez que le titre vous convient, désignez dev. A dans **Reviewer**, la personne chargée de relire, puis cliquez sur **Create merge request**. Seul, désignez-vous, ou laissez ce champ vide.
 
 ```verify
-C=$(cat ~/layers-git/binome/url 2>/dev/null)
+C=$(cat ~/byte-layers/git/binome/url 2>/dev/null)
 if [ -z "$C" ]; then
-  echo "L'adresse du projet n'est pas enregistrée dans ~/layers-git/binome/url."
+  echo "L'adresse du projet n'est pas enregistrée dans ~/byte-layers/git/binome/url."
   exit 1
 fi
 H=$(echo "$C" | sed -E 's#^(https?://)([^/@]*@)?([^/]+)/.*#\1\3#')
@@ -166,10 +166,10 @@ echo "La merge request est ouverte, de feature/content vers develop."
 Votre rôle vous autorise à pousser sur `develop`. Revenez sur cette branche, récupérez les commits du serveur, fusionnez votre feature, et poussez :
 
 ```exec
-cd ~/layers-git/binome/dev-a && git switch develop
-cd ~/layers-git/binome/dev-a && git pull
-cd ~/layers-git/binome/dev-a && git merge feature/css
-cd ~/layers-git/binome/dev-a && git push
+cd ~/byte-layers/git/binome/dev-a && git switch develop
+cd ~/byte-layers/git/binome/dev-a && git pull
+cd ~/byte-layers/git/binome/dev-a && git merge feature/css
+cd ~/byte-layers/git/binome/dev-a && git push
 ```
 
 Cette fois, le serveur accepte. Seul, si ce push est refusé, c'est que `develop` est restée sur **No one** : revoyez la section 04.3.
@@ -177,9 +177,9 @@ Cette fois, le serveur accepte. Seul, si ce push est refusé, c'est que `develop
 > 💡 **Remarque.** Le manager passe ici par un push direct pour que vous voyiez la différence entre les deux rôles. Dans une vraie équipe, il vaut mieux que tout le monde passe par une merge request, manager compris. La relecture est utile pour chacun.
 
 ```verify
-C=$(cat ~/layers-git/binome/url 2>/dev/null)
+C=$(cat ~/byte-layers/git/binome/url 2>/dev/null)
 if [ -z "$C" ]; then
-  echo "L'adresse du projet n'est pas enregistrée dans ~/layers-git/binome/url."
+  echo "L'adresse du projet n'est pas enregistrée dans ~/byte-layers/git/binome/url."
   exit 1
 fi
 H=$(echo "$C" | sed -E 's#^(https?://)([^/@]*@)?([^/]+)/.*#\1\3#')
@@ -203,8 +203,8 @@ echo "La feature css est sur develop."
 Retournez sur votre merge request, sur GitLab. Elle ne peut plus être fusionnée, car GitLab y signale un conflit : dev. A et vous avez modifié la même ligne `<h1>`. La résolution se fait sur votre branche. Récupérez `develop`, et fusionnez-la dans `feature/content`. Cette fusion va s'arrêter sur le conflit :
 
 ```exec
-cd ~/layers-git/binome/dev-b && git fetch
-cd ~/layers-git/binome/dev-b && git merge origin/develop
+cd ~/byte-layers/git/binome/dev-b && git fetch
+cd ~/byte-layers/git/binome/dev-b && git merge origin/develop
 ```
 
 Git s'arrête, et c'est attendu :
@@ -214,7 +214,7 @@ CONFLICT (content): Merge conflict in cv/index.html
 Automatic merge failed; fix conflicts and then commit the result.
 ```
 
-Ouvrez `~/layers-git/binome/dev-b/cv/index.html` dans votre éditeur. Git y a écrit les deux versions de la ligne, entre des marqueurs :
+Ouvrez `~/byte-layers/git/binome/dev-b/cv/index.html` dans votre éditeur. Git y a écrit les deux versions de la ligne, entre des marqueurs :
 
 ```text
 <<<<<<< HEAD
@@ -233,14 +233,14 @@ Gardez votre texte et la classe ajoutée par dev. A. Remplacez ces cinq lignes p
 Terminez la fusion, puis poussez votre branche. `--no-edit` garde le message de commit proposé par Git, et la merge request se met à jour toute seule :
 
 ```exec
-cd ~/layers-git/binome/dev-b && git add cv/index.html && git commit --no-edit
-cd ~/layers-git/binome/dev-b && git push
+cd ~/byte-layers/git/binome/dev-b && git add cv/index.html && git commit --no-edit
+cd ~/byte-layers/git/binome/dev-b && git push
 ```
 
 ```verify
-C=$(cat ~/layers-git/binome/url 2>/dev/null)
+C=$(cat ~/byte-layers/git/binome/url 2>/dev/null)
 if [ -z "$C" ]; then
-  echo "L'adresse du projet n'est pas enregistrée dans ~/layers-git/binome/url."
+  echo "L'adresse du projet n'est pas enregistrée dans ~/byte-layers/git/binome/url."
   exit 1
 fi
 H=$(echo "$C" | sed -E 's#^(https?://)([^/@]*@)?([^/]+)/.*#\1\3#')
@@ -268,9 +268,9 @@ echo "Le conflit est résolu sur feature/content."
 Dev. B ne peut pas fusionner sa propre merge request, car son rôle ne l'autorise pas à modifier `develop`. C'est à vous de le faire. Ouvrez la merge request, relisez le travail dans l'onglet **Changes**, puis cliquez sur **Merge**. La case **Delete source branch** supprime la branche sur le serveur après la fusion : vous pouvez la laisser cochée, car le travail est maintenant dans `develop`.
 
 ```verify
-C=$(cat ~/layers-git/binome/url 2>/dev/null)
+C=$(cat ~/byte-layers/git/binome/url 2>/dev/null)
 if [ -z "$C" ]; then
-  echo "L'adresse du projet n'est pas enregistrée dans ~/layers-git/binome/url."
+  echo "L'adresse du projet n'est pas enregistrée dans ~/byte-layers/git/binome/url."
   exit 1
 fi
 H=$(echo "$C" | sed -E 's#^(https?://)([^/@]*@)?([^/]+)/.*#\1\3#')

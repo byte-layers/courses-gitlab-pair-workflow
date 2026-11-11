@@ -12,10 +12,10 @@ En relisant le site, dev. B s'aperçoit que le titre de la page en production, �
 Créez la branche du correctif à partir de `main` :
 
 ```exec
-cd ~/layers-git/binome/dev-b && git switch -c hotfix/1.0.1 main
+cd ~/byte-layers/git/binome/dev-b && git switch -c hotfix/1.0.1 main
 ```
 
-Ouvrez `~/layers-git/binome/dev-b/cv/index.html` dans votre éditeur, et remplacez la ligne `<title>` par celle-ci :
+Ouvrez `~/byte-layers/git/binome/dev-b/cv/index.html` dans votre éditeur, et remplacez la ligne `<title>` par celle-ci :
 
 ```html
   <title>CV de Jane Doe</title>
@@ -24,17 +24,17 @@ Ouvrez `~/layers-git/binome/dev-b/cv/index.html` dans votre éditeur, et remplac
 Mettez aussi à jour le numéro de version, faites un commit, et publiez la branche :
 
 ```exec
-cd ~/layers-git/binome/dev-b && echo '1.0.1' > VERSION
-cd ~/layers-git/binome/dev-b && git commit -am "Corrige le titre de la page"
-cd ~/layers-git/binome/dev-b && git push -u origin hotfix/1.0.1
+cd ~/byte-layers/git/binome/dev-b && echo '1.0.1' > VERSION
+cd ~/byte-layers/git/binome/dev-b && git commit -am "Corrige le titre de la page"
+cd ~/byte-layers/git/binome/dev-b && git push -u origin hotfix/1.0.1
 ```
 
 Sur GitLab, ouvrez une merge request de `hotfix/1.0.1` vers `main`, comme vous l'avez fait pour la feature content, et désignez dev. A dans **Reviewer**. Cette fois, la cible proposée par défaut, `main`, est la bonne. Seul, désignez-vous, ou laissez ce champ vide.
 
 ```verify
-C=$(cat ~/layers-git/binome/url 2>/dev/null)
+C=$(cat ~/byte-layers/git/binome/url 2>/dev/null)
 if [ -z "$C" ]; then
-  echo "L'adresse du projet n'est pas enregistrée dans ~/layers-git/binome/url."
+  echo "L'adresse du projet n'est pas enregistrée dans ~/byte-layers/git/binome/url."
   exit 1
 fi
 H=$(echo "$C" | sed -E 's#^(https?://)([^/@]*@)?([^/]+)/.*#\1\3#')
@@ -58,24 +58,24 @@ echo "La merge request du correctif est ouverte."
 Sur GitLab, ouvrez la merge request et cliquez sur **Merge**. Récupérez ensuite `main`, et marquez cette version :
 
 ```exec
-cd ~/layers-git/binome/dev-a && git switch main
-cd ~/layers-git/binome/dev-a && git pull
-cd ~/layers-git/binome/dev-a && git tag -a v1.0.1 -m "Version 1.0.1"
+cd ~/byte-layers/git/binome/dev-a && git switch main
+cd ~/byte-layers/git/binome/dev-a && git pull
+cd ~/byte-layers/git/binome/dev-a && git tag -a v1.0.1 -m "Version 1.0.1"
 ```
 
 Si `develop` ne recevait pas ce correctif, le bug reviendrait à la prochaine version. Fusionnez donc `main` dans `develop`, et publiez `develop` et le tag :
 
 ```exec
-cd ~/layers-git/binome/dev-a && git switch develop
-cd ~/layers-git/binome/dev-a && git pull
-cd ~/layers-git/binome/dev-a && git merge --no-ff main -m "Reporte le correctif 1.0.1 dans develop"
-cd ~/layers-git/binome/dev-a && git push origin develop v1.0.1
+cd ~/byte-layers/git/binome/dev-a && git switch develop
+cd ~/byte-layers/git/binome/dev-a && git pull
+cd ~/byte-layers/git/binome/dev-a && git merge --no-ff main -m "Reporte le correctif 1.0.1 dans develop"
+cd ~/byte-layers/git/binome/dev-a && git push origin develop v1.0.1
 ```
 
 ```verify
-C=$(cat ~/layers-git/binome/url 2>/dev/null)
+C=$(cat ~/byte-layers/git/binome/url 2>/dev/null)
 if [ -z "$C" ]; then
-  echo "L'adresse du projet n'est pas enregistrée dans ~/layers-git/binome/url."
+  echo "L'adresse du projet n'est pas enregistrée dans ~/byte-layers/git/binome/url."
   exit 1
 fi
 H=$(echo "$C" | sed -E 's#^(https?://)([^/@]*@)?([^/]+)/.*#\1\3#')
@@ -105,11 +105,11 @@ echo "Le correctif est sur main et sur develop, et la version 1.0.1 est taguée.
 Mettez à jour vos deux branches permanentes, et supprimez votre copie locale de la branche du correctif :
 
 ```exec
-cd ~/layers-git/binome/dev-b && git switch main
-cd ~/layers-git/binome/dev-b && git pull
-cd ~/layers-git/binome/dev-b && git switch develop
-cd ~/layers-git/binome/dev-b && git pull
-cd ~/layers-git/binome/dev-b && git branch -d hotfix/1.0.1
+cd ~/byte-layers/git/binome/dev-b && git switch main
+cd ~/byte-layers/git/binome/dev-b && git pull
+cd ~/byte-layers/git/binome/dev-b && git switch develop
+cd ~/byte-layers/git/binome/dev-b && git pull
+cd ~/byte-layers/git/binome/dev-b && git branch -d hotfix/1.0.1
 ```
 
 Confirmez lorsque vos branches sont à jour.
